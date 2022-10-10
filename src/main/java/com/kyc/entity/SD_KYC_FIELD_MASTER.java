@@ -6,10 +6,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,11 +30,13 @@ public class SD_KYC_FIELD_MASTER {
 	private String name;
 	
 	
-	@Column(name="FIELD_TYPE",nullable = false)
-	private Integer fieldType;
+	@ManyToOne(cascade=CascadeType.ALL)//,fetch=FetchType.EAGER)//Manytoone since many employe belong to one department
+	@JoinColumn(name="FIELD_TYPE",referencedColumnName = "ID",nullable = false)
+	private SD_KYC_FIELD_TYPES fieldType;
 	
-	@Column(name="TAG_TYPE",nullable = false)
-	private Integer tagType;
+	@ManyToOne(cascade=CascadeType.ALL)//,fetch=FetchType.EAGER)//Manytoone since many employe belong to one department
+	@JoinColumn(name="TAG_TYPE",referencedColumnName = "ID",nullable = false)
+	private SD_KYC_GROUPS tagType;
 
 	@Column(name="DROPDOWN",nullable = false)
 	private String dropdown;
@@ -53,19 +57,19 @@ public class SD_KYC_FIELD_MASTER {
 		this.name = name;
 	}
 
-	public Integer getFieldType() {
+	public SD_KYC_FIELD_TYPES getFieldType() {
 		return fieldType;
 	}
 
-	public void setFieldType(Integer fieldType) {
+	public void setFieldType(SD_KYC_FIELD_TYPES fieldType) {
 		this.fieldType = fieldType;
 	}
 
-	public Integer getTagType() {
+	public SD_KYC_GROUPS getTagType() {
 		return tagType;
 	}
 
-	public void setTagType(Integer tagType) {
+	public void setTagType(SD_KYC_GROUPS tagType) {
 		this.tagType = tagType;
 	}
 
@@ -77,7 +81,7 @@ public class SD_KYC_FIELD_MASTER {
 		this.dropdown = dropdown;
 	}
 
-	public SD_KYC_FIELD_MASTER(Integer id, String name, Integer fieldType, Integer tagType,
+	public SD_KYC_FIELD_MASTER(Integer id, String name, SD_KYC_FIELD_TYPES fieldType, SD_KYC_GROUPS tagType,
 			String dropdown) {
 		super();
 		this.id = id;

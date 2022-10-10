@@ -3,13 +3,14 @@ package com.kyc.bean;
 import java.util.List;
 
 import com.kyc.entity.SD_KYC_FIELD_TYPES;
+import com.kyc.entity.SD_KYC_GROUPS;
 
 public class SD_KYC_FIELD_MASTER_Bean {
 	
 	private Integer id;
 	private String name;
-	private Integer fieldType;
-	private Integer tagType;
+	private SD_KYC_FIELD_TYPES fieldType;
+	private SD_KYC_GROUPS tagType;
 	private String dropdown;
 	public Integer getId() {
 		return id;
@@ -24,16 +25,16 @@ public class SD_KYC_FIELD_MASTER_Bean {
 		this.name = name;
 	}
 	
-	public Integer getFieldType() {
+	public SD_KYC_FIELD_TYPES getFieldType() {
 		return fieldType;
 	}
-	public void setFieldType(Integer fieldType) {
+	public void setFieldType(SD_KYC_FIELD_TYPES fieldType) {
 		this.fieldType = fieldType;
 	}
-	public Integer getTagType() {
+	public SD_KYC_GROUPS getTagType() {
 		return tagType;
 	}
-	public void setTagType(Integer tagType) {
+	public void setTagType(SD_KYC_GROUPS tagType) {
 		this.tagType = tagType;
 	}
 	public String getDropdown() {
@@ -43,7 +44,7 @@ public class SD_KYC_FIELD_MASTER_Bean {
 		this.dropdown = dropdown;
 	}
 	
-	public SD_KYC_FIELD_MASTER_Bean(Integer id, String name, Integer fieldType, Integer tagType,
+	public SD_KYC_FIELD_MASTER_Bean(Integer id, String name, SD_KYC_FIELD_TYPES fieldType, SD_KYC_GROUPS tagType,
 			String dropdown) {
 		super();
 		this.id = id;
