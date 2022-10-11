@@ -30,11 +30,11 @@ public class SD_KYC_FIELD_MASTER {
 	private String name;
 	
 	
-	@ManyToOne(cascade=CascadeType.ALL)//,fetch=FetchType.EAGER)//Manytoone since many employe belong to one department
+	@ManyToOne(cascade=CascadeType.ALL)//When you use CascadeType.ALL, whenever you do any operation on the parent all those operations would also get cascaded to the child
 	@JoinColumn(name="FIELD_TYPE",referencedColumnName = "ID",nullable = false)
 	private SD_KYC_FIELD_TYPES fieldType;
 	
-	@ManyToOne(cascade=CascadeType.ALL)//,fetch=FetchType.EAGER)//Manytoone since many employe belong to one department
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="TAG_TYPE",referencedColumnName = "ID",nullable = false)
 	private SD_KYC_GROUPS tagType;
 
